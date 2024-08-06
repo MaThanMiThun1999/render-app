@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 require("dotenv").config();
 
+
 const scrapeLogic = async (res) => {
   console.log("Browser launchning with Puppeteer...");
   const browser = await puppeteer.launch({
@@ -48,7 +49,7 @@ const scrapeLogic = async (res) => {
     // Fill "mathanrajmuruge... on <input> #usernameField
     await page.waitForSelector("#usernameField");
 
-    await page.type("#usernameField", "mathanrajmurugesanupdate@gmail.com");
+    await page.type("#usernameField", process.env.NAUKRI_EMAILID ?? '' );
     console.log("EmailID entered...");
 
 
@@ -58,7 +59,7 @@ const scrapeLogic = async (res) => {
     await page.click("#passwordField");
 
     // Fill "Mathan@1999" on <input> #passwordField
-    await page.type("#passwordField", "Mathan@1999");
+    await page.type("#passwordField", process.env.NAUKRI_PASSWORD ?? '');
 
 
     console.log("Password entered...");
