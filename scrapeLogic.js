@@ -9,10 +9,10 @@ const scrapeLogic = async (res) => {
       args: ["--disable-setuid-sandbox", "--no-sandbox", "--single-process", "--no-zygote"],
       headless: true,
       slowMo: 100,
-      // executablePath:
-      //   process.env.NODE_ENV === "production"
-      //     ? process.env.PUPPETEER_EXECUTABLE_PATH
-      //     : puppeteer.executablePath(),
+      executablePath:
+        process.env.NODE_ENV === "production"
+          ? process.env.PUPPETEER_EXECUTABLE_PATH
+          : puppeteer.executablePath(),
     });
 
     console.log("Browser launched with Puppeteer...");
